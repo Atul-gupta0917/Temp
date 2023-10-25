@@ -1,3 +1,5 @@
+package Function;
+import java.lang.Math;
 import java.util.Scanner;
 public class armstrong {
     static int count(int num)
@@ -14,17 +16,18 @@ public class armstrong {
     }
     static int power(int n,int p)
     {
-        int s=0;
+        int s,sum=0;
          while(n>0)
             {
-           for(int i=1;i<p;i++)
-           {int rem=n%10;
-              rem=rem*rem;
-               s=s+rem;
+               int rem=n%10;
+               s=Math.pow(rem, p);
+               sum=sum+s;
+               n=n/10;
            }
+           return sum;
         }
-         return s;
-    }
+        
+    
     static void check(int input,int number)
     {
         if(input==number)
@@ -32,7 +35,7 @@ public class armstrong {
         else
             System.out.println("not armstrong");
         
-
+        
     }
     
     public static void main(String[] args) {
@@ -42,6 +45,7 @@ public class armstrong {
         int res=count(data);
         int powercheck=power(data,res);
         check(data,powercheck);
+        sc.close();
     }
     
 }
